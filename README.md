@@ -36,16 +36,16 @@ An Azure-based enterprise AI copilot that enables users to investigate structure
 
 **Retrieval-Augmented Generation | Semantic Search | Claude | ChromaDB**
 
-A document-grounded question-answering application that enables users to upload PDF, Excel, and CSV files and interact with their contents through a conversational Streamlit interface.
+A document-grounded question-answering application that enables users to upload PDF documents and interact with their contents through a conversational Streamlit interface.
 
 **Key engineering capabilities:**
-- **Multi-format document ingestion:** PDF text and table extraction using pdfplumber, with structured spreadsheet processing through pandas.
+- **Document ingestion:** PDF text and table extraction using pdfplumber, with additional Excel and CSV processing implemented in the backend.
 - **Document chunking:** LangChain RecursiveCharacterTextSplitter with configurable chunk size and overlap.
-- **Vector embeddings and storage:** ChromaDB with ONNX-based embeddings using the `all-MiniLM-L6-v2` model and session-scoped vector collections.
-- **Semantic retrieval:** Configurable Top-K similarity search to retrieve relevant document chunks.
-- **LLM-powered question answering:** Anthropic Claude integration for context-grounded answer generation with source-filename references.
-- **Conversational context:** Configurable conversation-history window and per-session document indexing.
-- **Application architecture:** Streamlit frontend directly integrated with a modular Python RAG backend, supporting local execution and Streamlit Cloud configuration.
+- **Vector embeddings and storage:** ChromaDB with ONNX-based embeddings and session-scoped vector collections.
+- **Semantic retrieval:** Top-K similarity search to retrieve relevant document chunks.
+- **LLM-powered question answering:** Anthropic Claude integration for context-grounded answer generation.
+- **Session management:** Session-specific document indexing and chat history displayed in the interface.
+- **Application architecture:** Streamlit frontend integrated with a modular Python RAG backend.
 
 **Tech Stack:** Python · Anthropic Claude · ChromaDB · LangChain · ONNX Embeddings · Streamlit · pdfplumber · pandas · openpyxl · Loguru
 
@@ -55,20 +55,21 @@ A document-grounded question-answering application that enables users to upload 
 
 ### 3. Multilingual Transcription Platform — AI Speech-to-Text
 
-**Automatic Speech Recognition | Faster-Whisper | Multilingual AI | Google Cloud**
+**Automatic Speech Recognition | Faster-Whisper | Multilingual AI | Streamlit**
 
-A multilingual automatic speech recognition (ASR) application designed to transform audio and video recordings into structured, timestamped transcripts through a web-based interface.
+A multilingual speech recognition application that transforms audio and video recordings into structured, timestamped transcripts through an interactive web interface.
 
 **Key engineering capabilities:**
-- **Speech recognition:** Faster-Whisper inference using the Whisper `medium` model by default, with configurable model selection.
-- **Multilingual transcription:** Automatic language detection and explicit language selection, including Arabic, French, and English.
-- **Inference optimization:** Automatic CPU/GPU device selection, float16 computation on CUDA-capable GPUs, and int8 inference on CPU.
-- **Audio processing:** Voice Activity Detection (VAD) to filter non-speech segments, with timestamped transcription output.
-- **Multiple input formats:** MP3, MP4, M4A, WAV, OGG, FLAC, WebM, and Opus.
-- **Transcript export:** Downloadable TXT, SRT, VTT, and JSON outputs, including subtitle timestamps.
-- **Authentication and deployment:** Google OAuth 2.0 authentication, Google Cloud Identity-Aware Proxy integration path, Docker, Docker Compose, and Google Cloud Build deployment configuration.
+- **Speech recognition:** Faster-Whisper inference with configurable model selection.
+- **Multilingual transcription:** Automatic language detection and manual language selection, including Arabic, French, and English.
+- **Inference optimization:** CPU/GPU device detection, float16 computation on CUDA-enabled GPUs, and int8 inference on CPU.
+- **Audio processing:** Voice Activity Detection (VAD) and timestamped speech segments.
+- **Audio input:** File uploads and microphone recording directly through the browser.
+- **Multiple formats:** MP3, MP4, M4A, WAV, OGG, FLAC, WebM, and Opus.
+- **Transcript export:** Downloadable TXT, SRT, VTT, and JSON files.
+- **Application architecture:** Python-based transcription engine, Streamlit frontend, and Google OAuth 2.0 authentication integration.
 
-**Tech Stack:** Python · Faster-Whisper · Streamlit · Automatic Speech Recognition · Google OAuth 2.0 · Google Cloud IAP · Docker · Docker Compose · Google Cloud Build
+**Tech Stack:** Python · Faster-Whisper · Streamlit · FFmpeg · Automatic Speech Recognition · Google OAuth 2.0
 
 **[Explore Transcription Platform →](https://github.com/zyani-chaimaa/transcription-platform)**
 
